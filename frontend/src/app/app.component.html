@@ -1,0 +1,24 @@
+<div class="main">
+  <header class="headerpage">
+    <app-header></app-header>
+  </header>
+  <app-sidebar></app-sidebar>
+  <!-- MAIN -->
+  <main>
+    <div class="main-content">
+      <div class="page-title-breadcrumb">
+        <h1>{{ breadcrumbs.name }}</h1>
+        <div class="breadcrumbs">
+          <p>
+            <i class="fas fa-home-alt"></i>
+            <a [routerLink]="['']"> Trang chủ / </a>
+            <span [routerLink]="['', breadcrumbs.url]">
+              {{ breadcrumbs.name }}
+            </span>
+          </p>
+        </div>
+      </div>
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+  </main>
+</div>

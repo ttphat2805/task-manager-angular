@@ -1,0 +1,93 @@
+.icon-leader {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--primary-color);
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: var(--white-color);
+  font-size: 30px;
+}
+.name-leader p {
+  color: var(--text-color);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 450;
+}
+
+.project-name h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 24px;
+  color: var(--text-color);
+}
+
+.project-name {
+  margin-bottom: 24px;
+}
+
+.title-member {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.project-detail {
+  display: flex;
+  align-items: center;
+}
+
+.project-detail {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  margin-top: 10px;
+}
+
+.project-detail i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-right: 8px;
+  font-weight: 500;
+}
+.progress-bar {
+  position: relative;
+  margin-top: 8px;
+  height: 16px;
+  width: 100%;
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.progress {
+  height: 16px;
+  border-radius: 50px;
+  background: #ff7400;
+  border: 1px solid #ff7400;
+  box-shadow: inset 0 1px 1px #f0f0f0;
+}
+
+.progress-percent {
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.progress-container {
+  padding-top: 16px;
+  border-top: 1px solid #ccc;
+  margin-top: 8px;
+}
+
+.progress-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--text-color);
+}

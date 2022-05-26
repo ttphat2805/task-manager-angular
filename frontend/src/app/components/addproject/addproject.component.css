@@ -1,0 +1,25 @@
+.card {
+  width: 650px;
+  padding: 0 10px;
+  background: #fff;
+}
+
+input {
+  padding: 14px 14px;
+}
+
+.btn {
+  margin: 32px 0;
+  float: right;
+}
+
+.form-checkbox {
+  margin-top: 24px;
+}
+
+label {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 10px 0;
+}

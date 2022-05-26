@@ -1,0 +1,29 @@
+.chart-widget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+}
+
+.chart-widget .icon {
+  font-size: 3.3rem;
+  background: var(--primary-color);
+  color: var(--white-color);
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.chart-widget-info .count {
+  text-align: right;
+  margin-bottom: 16px;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.chart-widget-info .title {
+  text-align: right;
+  font-weight: 500;
+}

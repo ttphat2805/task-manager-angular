@@ -1,0 +1,56 @@
+<div class="chart-container">
+  <div class="row">
+    <div class="col c-3">
+      <div class="card">
+        <div class="card-body chart-widget">
+          <span class="icon">
+            <i class="fal fa-user-alt"></i>
+          </span>
+          <div class="chart-widget-info">
+            <h3 class="count">{{ listMember.length }}</h3>
+            <p class="title">Thành viên</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col c-3">
+      <div class="card">
+        <div class="card-body chart-widget">
+          <span class="icon">
+            <i class="far fa-book-reader"></i>
+          </span>
+          <div class="chart-widget-info">
+            <h3 class="count">{{ listProject.length }}</h3>
+            <p class="title">Dự án</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col c-3">
+      <div class="card">
+        <div class="card-body chart-widget">
+          <span class="icon">
+            <i class="fad fa-tasks-alt"></i>
+          </span>
+          <div class="chart-widget-info">
+            <h3 class="count">{{ listTask.length }}</h3>
+            <p class="title">Task</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col c-3">
+      <div class="card">
+        <div class="card-body chart-widget">
+          <span class="icon">
+            <i class="far fa-sack-dollar"></i>
+          </span>
+          <div class="chart-widget-info">
+            <h3 class="count">{{ price | currency: "VND":"Đ" }}</h3>
+            <p class="title">Chi phí</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

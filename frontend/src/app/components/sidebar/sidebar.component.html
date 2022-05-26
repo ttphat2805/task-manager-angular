@@ -1,0 +1,122 @@
+<div class="sidebar-container">
+  <div class="sidebar-main">
+    <ul class="sidebar-menu">
+      <li>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar">
+            <img src="../assets/image/phat.jpg" alt="" />
+          </div>
+          <div class="sidebar-user-details">
+            <p class="username">Tran Phat</p>
+            <p class="role">Administrator</p>
+          </div>
+        </div>
+      </li>
+      <label class="" for="btn-1">
+        <li class="sidebar-menu-item">
+          <a>
+            <i class="fal fa-book-alt"></i>
+            <span> Dự án </span>
+            <i class="fas fa-angle-down arrow"></i>
+          </a>
+          <input type="checkbox" id="btn-1" />
+          <ul class="sidebar-menu dropdown">
+            <li>
+              <a [routerLink]="['/addproject']" [routerLinkActive]="'active'"
+                >Thêm dự án</a
+              >
+            </li>
+            <li>
+              <a
+                [routerLink]="['/']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                [routerLinkActive]="'active'"
+                >Danh sách dự án</a
+              >
+            </li>
+          </ul>
+        </li>
+      </label>
+
+      <label class="" for="btn-2">
+        <li class="sidebar-menu-item">
+          <a>
+            <i class="fad fa-tasks"></i>
+            <span> Task </span>
+            <i class="fas fa-angle-down arrow"></i>
+          </a>
+          <input type="checkbox" id="btn-2" />
+          <ul class="sidebar-menu dropdown">
+            <li>
+              <a [routerLink]="['/addtask']" [routerLinkActive]="'active'"
+                >Thêm task</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/task']" [routerLinkActive]="'active'"
+                >Danh sách task</a
+              >
+            </li>
+          </ul>
+        </li>
+      </label>
+
+      <label class="" for="btn-3">
+        <li class="sidebar-menu-item">
+          <a>
+            <i class="far fa-users"></i>
+            <span> Nhân viên </span>
+            <i class="fas fa-angle-down arrow"></i>
+          </a>
+          <input type="checkbox" id="btn-3" />
+          <ul class="sidebar-menu dropdown">
+            <li>
+              <a [routerLink]="['/addmember']" [routerLinkActive]="'active'"
+                >Thêm nhân viên</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/member']" [routerLinkActive]="'active'"
+                >Danh sách nhân viên</a
+              >
+            </li>
+          </ul>
+        </li>
+      </label>
+      <label class="">
+        <li
+          [routerLink]="['/chart']"
+          [routerLinkActive]="'active'"
+          class="sidebar-menu-item"
+        >
+          <a>
+            <i class="fad fa-chart-pie"></i>
+            <span> Thống kê </span>
+          </a>
+        </li>
+      </label>
+      <label class="" for="btn-4">
+        <li class="sidebar-menu-item">
+          <a>
+            <i class="far fa-users"></i>
+            <span> Tài khoản </span>
+            <i class="fas fa-angle-down arrow"></i>
+          </a>
+          <input type="checkbox" id="btn-4" />
+          <ul class="sidebar-menu dropdown">
+            <li>
+              <a [routerLink]="['/register']" [routerLinkActive]="'active'"
+                >Đăng ký</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/login']" [routerLinkActive]="'active'"
+                >Đăng nhập</a
+              >
+            </li>
+          </ul>
+        </li>
+      </label>
+    </ul>
+  </div>
+</div>
