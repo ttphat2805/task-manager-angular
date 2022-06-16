@@ -1,0 +1,77 @@
+<div class="row col c-12">
+  <div class="card mid-item">
+    <div class="card-body">
+      <p class="title-table">Task</p>
+      <div class="search-input">
+        <div class="form-search">
+          <input
+            type="text"
+            [(ngModel)]="searchKey"
+            placeholder="Tìm kiếm..."
+          />
+          <span class="icon-search">
+            <i class="fad fa-search"></i>
+          </span>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Ngày sinh</th>
+            <th>Vai trò</th>
+            <th>Khu vực</th>
+            <th>Trạng thái</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let member of listMember | filter: searchKey,let i = index">
+          <tr>
+            <td>{{ i+1 }}</td>
+            <td>{{ member.fullname }}</td>
+            <td>{{ member.email }}</td>
+            <td>{{ member.date | date: "yyyy-MM-dd" }}</td>
+            <td>{{ member.role == 'member' ? 'Thành viên' : 'Nhóm trưởng'}}</td>
+            <ng-container [ngSwitch]="member.area">
+              <td *ngSwitchCase="'south'" >Nam</td>
+              <td *ngSwitchCase="'central'" >Trung</td>
+              <td *ngSwitchCase="'north'" >Bắc</td>
+            </ng-container>
+            <td *ngIf="member.status == 1">
+              <button class="btn-active" style="margin-right: 5px">
+                Kích hoạt
+              </button>
+            </td>
+            <td *ngIf="member.status == 0">
+              <button class="btn-unactive" style="margin-right: 5px">
+                Chưa kích hoạt
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-primary" style="margin-right: 5px"
+              [routerLink]="['/dashboard/updatemember', member._id]"
+              >
+                <i class="fal fa-comment-alt-edit"></i>
+              </button>
+              <button class="btn btn-danger" (click)="deleteMember(member._id)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal confirm" *ngIf="confirm">
+  <div class="confirm-text">
+    <p>{{textConfirm}}</p>
+  </div>
+  <div class="confirm-button">
+    <button class="btn btn-agree" (click)="agreeConfirm()">Đồng ý</button>
+    <button class="btn btn-cancel" (click)="cancelConfirm()">Hủy</button>
+  </div>
+</div>

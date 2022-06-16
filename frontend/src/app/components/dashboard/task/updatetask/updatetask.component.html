@@ -1,0 +1,104 @@
+<section class="project-add">
+  <div class="row col c-12">
+    <div class="card mid-item">
+      <div class="card-body">
+        <p class="title-form">
+          <i
+            class="far fa-calendar-plus"
+            style="margin-right: 5px; font-size: 2.4rem"
+          ></i
+          >Cập nhật task
+        </p>
+        <form #form="ngForm" (submit)="onSubmit(form.value)">
+          <div class="form-group">
+            <label for="">Tên task</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              [(ngModel)]="task.name"
+              placeholder="Tên..."
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Mô tả</label>
+            <textarea
+              rows="3"
+              name="description"
+              [(ngModel)]="task.description"
+              placeholder="Mô tả task..."
+              class="form-control"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="">Dự án</label>
+            <select
+              class="form-control"
+              name="projectId"
+              [(ngModel)]="task.projectId"
+            >
+              <option value="" hidden>Chọn dự án</option>
+              <option
+                *ngFor="let project of listProject"
+                value="{{ project._id }}"
+              >
+                {{ project.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="">Người thực hiện</label>
+            <select
+              class="form-control"
+              name="memberId"
+              [(ngModel)]="task.memberId"
+            >
+              <option value="" hidden>Chọn người thực hiện</option>
+              <option
+                *ngFor="let member of listMember"
+                value="{{ member._id }}"
+              >
+                {{ member.fullname }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="">Độ ưu tiên</label>
+            <input
+              type="number"
+              class="form-control"
+              name="priority"
+              [(ngModel)]="task.priority"
+              placeholder="Ưu tiên..."
+            />
+          </div>
+          <div class="form-checkbox">
+            <label for="">Trạng thái</label><br />
+            <input
+              type="radio"
+              value="1"
+              id="box-1"
+              name="status"
+              [(ngModel)]="task.status"
+            />
+            <span class="radio"></span>
+            <label class="label-radio" for="box-1">Kích hoạt</label>
+          </div>
+          <div class="form-checkbox">
+            <input
+              type="radio"
+              value="0"
+              id="box-2"
+              name="status"
+              name="status"
+              [(ngModel)]="task.status"
+            />
+            <span class="radio"></span>
+            <label class="label-radio" for="box-2">Chưa kích hoạt</label>
+          </div>
+          <button class="btn btn-primary">Thêm</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

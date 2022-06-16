@@ -1,10 +1,10 @@
 export interface Member {
-    id:number;
+    _id:string;
     email:string;
     fullname:string;
-    mobile:string;
+    password:string;
     date:string;
-    sex:number;
     area:string;
+    role:string;
     status:number;
 }

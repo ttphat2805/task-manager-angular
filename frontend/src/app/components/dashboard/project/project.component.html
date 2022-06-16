@@ -1,0 +1,81 @@
+<div class="row col c-12">
+  <div class="card mid-item">
+    <div class="card-body">
+      <p class="title-table">Dự án</p>
+      <div class="search-input">
+        <div class="form-search">
+          <input type="text" placeholder="Tìm kiếm..." />
+          <span class="icon-search">
+            <i class="fad fa-search"></i>
+          </span>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Tên dự án</th>
+            <th>Ngày bắt đầu</th>
+            <th>Chi phí</th>
+            <th>Leader</th>
+            <th>Thành viên</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let project of listProject | filter: searchKey, let i = index">
+          <tr>
+            <td>{{ i+1 }}</td>
+            <td id="cupointer" [routerLink]="[project._id]">
+              {{ project.name }}
+            </td>
+            <td>{{ project.dateStart }}</td>
+            <td>{{ project.price | currency: "VND":"đ" }}</td>
+            <td>{{ project.leader.fullname }}</td>
+            <td>
+              <div class="listMember" >
+                <p class="member-item" *ngFor="let member of project.member">{{ member.fullname }}</p>
+              </div>
+            </td>
+            <td *ngIf="project.status == 1">
+              <button class="btn-active" style="margin-right: 5px">
+                Kích hoạt
+              </button>
+            </td>
+            <td *ngIf="project.status == 0">
+              <button class="btn-unactive" style="margin-right: 5px">
+                Chưa kích hoạt
+              </button>
+            </td>
+            <td>
+              <button
+                style="margin-right: 5px; background: #ff7400; color: #fff"
+                class="btn"
+                [routerLink]="[project._id]"
+              >
+                <i class="fal fa-info-circle"></i>
+              </button>
+              <button class="btn btn-primary" style="margin-right: 5px"
+              [routerLink]="['updateproject', project._id]"
+              >
+                <i class="fal fa-comment-alt-edit"></i>
+              </button>
+              <button class="btn btn-danger" (click)="deleteMember(project._id)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal confirm" *ngIf="confirm">
+  <div class="confirm-text">
+    <p>Bạn có chắc muốn xóa không ?</p>
+  </div>
+  <div class="confirm-button">
+    <button class="btn btn-agree" (click)="agreeConfirm()">Đồng ý</button>
+    <button class="btn btn-cancel" (click)="cancelConfirm()">Hủy</button>
+  </div>
+</div>

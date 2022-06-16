@@ -1,9 +1,12 @@
+import { Member } from "./member";
+import { Project } from "./project";
+
 export interface Task {
-    id:number;
+    _id:string;
     name:string;
     description:string;
     priority:number;
     status:number;
-    projectId:number;
-    memberId:number;
+    projectId:Project;
+    memberId:Member;
 }

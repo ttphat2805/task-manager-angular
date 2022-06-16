@@ -43,6 +43,10 @@ html {
   overflow: hidden;
 }
 
+.label-radio{
+  cursor: pointer;
+}
+
 ol,
 ul {
   list-style: none;

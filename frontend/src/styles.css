@@ -1,1 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
+.modal {
+  width: 350px;
+  height: 170px;
+  position: fixed;
+  background: #fff;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px 1px rgb(0 0 0 / 6%), 0 1px 4px rgb(0 0 0 / 8%);
+  border: 0;
+}
+.modal .confirm-text {
+  color: black;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.8rem;
+}
+.confirm-button {
+  text-align: center;
+}
+
+.confirm-button button {
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 2px;
+  overflow: hidden;
+  font-weight: 500;
+  padding: 7px 10px;
+  color: black;
+  border: 1px solid #1abc9c;
+  background: transparent;
+  margin-top: 25px;
+  text-align: center;
+}
+.confirm-button button:hover {
+  color: #fff;
+}
+.btn.btn-cancel {
+  border: 1px solid red;
+}
+
+.btn.btn-agree:hover {
+  background: #1abc9c;
+  transition: all 0.2s;
+}
+.btn.btn-cancel:hover {
+  background: red;
+  transition: all 0.2s;
+}
+
+.btn-agree {
+  margin-right: 5px;
+}
+
+.errors {
+  font-size: 1.4rem;
+  color: red;
+}
+
+#overplay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  cursor: pointer;
+}

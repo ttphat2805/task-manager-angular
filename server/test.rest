@@ -1,0 +1,325 @@
+### All error: { message: "some error" }
+
+# admin
+@url = http://localhost:5000
+
+@token = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIDI3MDIiLCJfaWQiOjQzODB9.Fz3nejSYqfM5avPVbO5XzzpezduQdLkUAuFWwBUp08M
+############################################################ User
+
+###
+### Get users
+###
+Get {{url}}/user/
+Content-Type: application/json
+
+{}
+
+###
+### Register
+###
+POST {{url}}/user/register
+Content-Type: application/json
+
+{
+	"firstName":"huy16",
+	"lastName":"nguyen",
+	"email":"nguyenhothienhuy16@gmail.com",
+	"password":"123123"
+}
+
+###
+### Login
+###
+POST {{url}}/user/login
+Content-Type: application/json
+
+{
+	"email":"admin@gmail.com",
+	"password":"123123"
+}
+
+###
+### Logout
+###
+GET {{url}}/user/logout
+Content-Type: application/json
+x-token: {{token}}
+
+###
+### Show Profile
+###
+Get {{url}}/userProfile/findUserById
+Content-Type: application/json
+x-token: {{token}}
+
+
+
+############################################################ Project
+###
+### Show Project Team Roles By User Id
+###
+Get {{url}}/projectTeamMembers/findAllProjectByUserId
+Content-Type: application/json
+x-token: {{token}}
+
+###
+### Show Project Team Roles
+###
+Get {{url}}/projectTeamRoles/getAllProjectTeamRoles
+Content-Type: application/json
+
+###
+### Create New Member
+###
+POST {{url}}/projectTeamMembers/createNewMember
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"projectId":1,
+	"email":"nguyenhuukhoa@gmail.com",
+	"projectTeamRoleId":2
+}
+
+###
+### Show Detail Project By Id Project
+###
+POST {{url}}/reqProfiles/getAllMember
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"projectId": 426
+}
+###
+### Show Detail Project By Id Project
+###
+POST {{url}}/projects/filterNameUser
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"projectId":1,
+	"userName":"huy",
+	"page":1,
+	"pageSize":10
+}
+
+###
+### Show Project By Id Project
+###
+POST {{url}}/projects/getProject
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"projectId":460
+}
+
+###
+### Update Project By Id Project
+###
+POST {{url}}/projects/updateProject
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"projectId":460,
+	"name":"This is name project",
+	"type":2,
+	"description":"test update"
+}
+
+###
+### Confirm Notification
+### status: 1 accecpt ,0 : refuse
+###
+POST {{url}}/projectTeamMembers/confirmAddToProject
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"projectId":1,
+    "notificationId" :2,
+    "status" :1
+}
+
+###
+### Get User By Id
+###
+POST {{url}}/specProfiles/getUserById
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"user_id":4
+}
+
+############################################################ Notification
+###
+### Show Notification
+###
+Get {{url}}/notifications/getAllNotiByUserId
+Content-Type: application/json
+x-token: {{token}}
+
+###
+### Checked Notification
+###
+POST {{url}}/notifications/checkedNotification
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"id":1
+}
+
+
+############################################################ Deal Memos
+
+###
+### Get All Memo by Project Id  User Id
+###
+POST {{url}}/dealMemos/getAllDealMemoByProjectIdUserId
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"userId":4,
+	"projectId":1
+}
+
+###
+### Create New Memo
+###
+Get {{url}}/dealMemos/create
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"userId":4,
+	"name":"deal memo 1",
+	"projectId":1,
+	"nameFile":"dealmemo.pdf"
+}
+
+###
+### Checked Notification
+###
+POST {{url}}/dealMemos/upload-pdf
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"id":1
+}
+
+############################################################ Categories
+
+###
+### Get All Categories
+###
+GET {{url}}/categories/getAllCategories
+Content-Type: application/json
+x-token: {{token}}
+
+###
+### Get All Categories
+###
+POST {{url}}/categories/getChildrenCategories
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"id":20
+}
+
+############################################################ Member Profies
+
+###
+### Create new Member Profiles
+###
+POST {{url}}/memberProfiles/createMemberByUserId
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"userId":4369,
+	"projectId":459,
+	"actingRate": "24",
+	"company": "",
+	"degreeCourse": "",
+	"department": "testt22",
+	"firstName": "htestt",
+	"instructor": "",
+	"lastName": "1",
+	"locationId": 1,
+	"locationName": "Hồ Chí Minh",
+	"paymentTypeId":  [1, 2, 3],
+	"performanceType":  "onScreenStageSpeaking,onScreenStageNonSpeaking,stunts",
+	"position": "testt22",
+	"project": "",
+	"projectTypeId":  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+	"role": 3,
+	"roleCredits": "",
+	"roleEthnicity":  "middle-eastern",
+	"roleGender":  1,
+	"roleLegal":  1,
+	"unionTypes":  "nonUnion, sagAfta"
+}
+
+###
+### Create new Member Profiles
+###
+
+POST {{url}}/memberProfiles/updateMemberByUserId
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"idMemberProfile":8,
+	"userId":4369,
+	"projectId":459,
+	"actingRate": "24",
+	"company": "",
+	"degreeCourse": "",
+	"department": "testt22",
+	"firstName": "htestt",
+	"instructor": "",
+	"lastName": "1",
+	"locationId": 1,
+	"locationName": "Hồ Chí Minh",
+	"paymentTypeId":  [1, 2, 3],
+	"performanceType":  "onScreenStageSpeaking,onScreenStageNonSpeaking,stunts",
+	"position": "testt22",
+	"project": "",
+	"projectTypeId":  [1, 2, 3, 4, 5, 6, 7, 8, 9],
+	"role": 3,
+	"roleCredits": "",
+	"roleEthnicity":  "middle-eastern",
+	"roleGender":  1,
+	"roleLegal":  1,
+	"unionTypes":  "nonUnion, sagAfta"
+}
+
+###
+### Create new Member Profiles
+###
+POST {{url}}/invoices/getAllInvoiceByProject
+Content-Type: application/json
+x-token: {{token}}
+
+{
+	"projectId":460
+}
+
+###
+### Test route
+###
+GET {{url}}/clubs/getList
+Content-Type: application/json
+# x-token: {{token}}
+
+{
+	"projectId":460
+}

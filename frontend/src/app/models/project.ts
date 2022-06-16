@@ -1,8 +1,11 @@
+
 export interface Project {
-    id:number;
+    _id:String;
     name:string;
     dateStart:string;
+    dateEnd:string;
     price:number;
-    leader:number;
-    member:number[];
+    leader:String;
+    member:any;
+    status:number;
 }

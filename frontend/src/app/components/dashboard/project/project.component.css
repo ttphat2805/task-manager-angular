@@ -1,0 +1,8 @@
+.listMember{
+    display: flex;
+    flex-direction: column;
+}
+
+.member-item{
+    margin: 4px 0;
+}

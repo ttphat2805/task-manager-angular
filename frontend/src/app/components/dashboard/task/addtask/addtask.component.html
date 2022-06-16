@@ -1,0 +1,104 @@
+<section class="project-add">
+  <div class="row col c-12">
+    <div class="card mid-item">
+      <div class="card-body">
+        <p class="title-form">
+          <i
+            class="far fa-calendar-plus"
+            style="margin-right: 5px; font-size: 2.4rem"
+          ></i
+          >Thêm task
+        </p>
+        <form [formGroup]="FormTask" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="">Tên task</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Tên..." />
+          </div>
+          <div
+          class="errors"
+          *ngIf="
+            FormTask.controls['name'].invalid &&
+            FormTask.controls['name'].touched
+          "
+        >
+        Vui lòng nhập tên đúng & trên 6 kí tự..
+        </div>
+          <div class="form-group">
+            <label for="">Mô tả</label>
+            <textarea rows="3"  formControlName="description" placeholder="Mô tả task..." class="form-control"></textarea>
+          </div>
+          <div
+          class="errors"
+          *ngIf="
+            FormTask.controls['description'].invalid &&
+            FormTask.controls['description'].touched
+          "
+        >
+          Vui lòng nhập mô tả & trên 6 kí tự..
+        </div>
+          <div class="form-group">
+            <label for="">Dự án</label>
+            <select formControlName="projectId" class="form-control">
+              <option value="" hidden>Chọn dự án</option>
+              <option  *ngFor="let project of listProject" value="{{project._id}}">
+                {{project.name}}
+              </option>
+            </select>
+          </div>
+          <div
+          class="errors"
+          *ngIf="
+            FormTask.controls['projectId'].invalid &&
+            FormTask.controls['projectId'].touched
+          "
+        >
+          Vui lòng chọn dự án..
+        </div>
+          <div class="form-group">
+            <label for="">Người thực hiện</label>
+            <select formControlName="memberId" class="form-control">
+              <option value="" hidden>Chọn người thực hiện</option>
+              <option  *ngFor="let member of listMember" value="{{member._id}}">
+                {{member.fullname}}
+              </option>
+            </select>
+          </div>
+          <div
+          class="errors"
+          *ngIf="
+            FormTask.controls['memberId'].invalid &&
+            FormTask.controls['memberId'].touched
+          "
+        >
+          Vui lòng chọn người thực hiện..
+        </div>
+          <div class="form-group">
+            <label for="">Độ ưu tiên</label>
+            <input type="number" class="form-control" formControlName="priority" placeholder="Ưu tiên..." />
+          </div>
+          <div
+          class="errors"
+          *ngIf="
+            FormTask.controls['priority'].invalid &&
+            FormTask.controls['priority'].touched
+          "
+        >
+          Vui lòng nhập độ ưu tiên..
+        </div>
+          <div class="form-checkbox">
+            <label for="">Trạng thái</label><br />
+            <input type="radio" value="1"formControlName="status" id="box-1" />
+            <span class="radio"></span>
+            <label class="label-radio" for="box-1">Kích hoạt</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="radio" value="0"formControlName="status" id="box-2" />
+            <span class="radio"></span>
+            <label class="label-radio" for="box-2">Chưa kích hoạt</label>
+          </div>
+          <button class="btn btn-primary">Thêm</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

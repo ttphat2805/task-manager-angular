@@ -1,0 +1,175 @@
+<div class="main">
+  <header class="headerpage">
+    <!-- HEADER -->
+    <div class="header-main">
+      <div class="menu-left">
+        <div class="logo">
+          <p class="text-logo">
+            <i class="fas fa-user-astronaut"></i>
+            T. Phat
+          </p>
+        </div>
+
+        <div class="navbar">
+          <i class="far fa-bars"></i>
+        </div>
+      </div>
+      <div class="menu-right">
+        <ul class="navbar-right">
+          <li class="menu-item">
+            <i class="far fa-cog"></i>
+          </li>
+          <li class="menu-item">
+            <i class="fal fa-bell-on"></i>
+            <span class="notification-badge">6</span>
+          </li>
+          <li class="menu-item">
+            <i class="fal fa-envelope"></i>
+            <span class="notification-badge letter">6</span>
+          </li>
+          <li class="menu-item">
+            <div class="avatar">
+              <img src="../../../assets/image/phat.jpg" alt="" />
+              <span>T. Phat</span>
+            </div>
+          </li>
+          <li class="menu-item">
+            <label for="setting-accounts" id="setting-label">
+              <i class="fal fa-ellipsis-v-alt"></i>
+            </label>
+            <input type="checkbox" id="setting-accounts">
+            <label for="setting-accounts" id="overplay">
+            </label>
+            <ul class="dropdown-item">
+              <li (click)="logOut()"> <i class="fad fa-sign-out"></i>Log out</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- END - HEADER -->
+  </header>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar-container">
+    <div class="sidebar-main">
+      <ul class="sidebar-menu">
+        <li>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <img src="../assets/image/phat.jpg" alt="" />
+            </div>
+            <div class="sidebar-user-details">
+              <p class="username">Tran Phat</p>
+              <p class="role">Administrator</p>
+            </div>
+          </div>
+        </li>
+        <label class="" for="btn-1">
+          <li class="sidebar-menu-item">
+            <a>
+              <i class="fal fa-book-alt"></i>
+              <span> Dự án </span>
+              <i class="fas fa-angle-down arrow"></i>
+            </a>
+            <input type="checkbox" id="btn-1" />
+            <ul class="sidebar-menu dropdown">
+              <li>
+                <a [routerLink]="['/dashboard/addproject']" [routerLinkActive]="'active'"
+                  >Thêm dự án</a
+                >
+              </li>
+              <li>
+                <a
+                  [routerLink]="['/dashboard/project']"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  [routerLinkActive]="'active'"
+                  >Danh sách dự án</a
+                >
+              </li>
+            </ul>
+          </li>
+        </label>
+
+        <label class="" for="btn-2">
+          <li class="sidebar-menu-item">
+            <a>
+              <i class="fad fa-tasks"></i>
+              <span> Task </span>
+              <i class="fas fa-angle-down arrow"></i>
+            </a>
+            <input type="checkbox" id="btn-2" />
+            <ul class="sidebar-menu dropdown">
+              <li>
+                <a [routerLink]="['/dashboard/addtask']" [routerLinkActive]="'active'"
+                  >Thêm task</a
+                >
+              </li>
+              <li>
+                <a [routerLink]="['/dashboard/task']" [routerLinkActive]="'active'"
+                  >Danh sách task</a
+                >
+              </li>
+            </ul>
+          </li>
+        </label>
+
+        <label class="" for="btn-3">
+          <li class="sidebar-menu-item">
+            <a>
+              <i class="far fa-users"></i>
+              <span> Nhân viên </span>
+              <i class="fas fa-angle-down arrow"></i>
+            </a>
+            <input type="checkbox" id="btn-3" />
+            <ul class="sidebar-menu dropdown">
+              <li>
+                <a [routerLink]="['/dashboard/addmember']" [routerLinkActive]="'active'"
+                  >Thêm nhân viên</a
+                >
+              </li>
+              <li>
+                <a [routerLink]="['/dashboard/member']" [routerLinkActive]="'active'"
+                  >Danh sách nhân viên</a
+                >
+              </li>
+            </ul>
+          </li>
+        </label>
+        <label class="">
+          <li
+            [routerLink]="['/dashboard/chart']"
+            [routerLinkActive]="'active'"
+            class="sidebar-menu-item"
+          >
+            <a>
+              <i class="fad fa-chart-pie"></i>
+              <span> Thống kê </span>
+            </a>
+          </li>
+        </label>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- END - SIDEBAR -->
+  <!-- MAIN -->
+  <main>
+    <div class="main-content">
+      <div class="page-title-breadcrumb">
+        <div class="breadcrumbs">
+          <p>
+            <i class="fas fa-home-alt"></i>
+            <a> Trang chủ </a>
+            <span> / {{breadcrumbs}}</span>
+          </p>
+        </div>
+      </div>
+      <router-outlet (activate)="Onactive($event)" ></router-outlet>
+    </div>
+  </main>
+
+  <!-- END MAIN -->
+</div>

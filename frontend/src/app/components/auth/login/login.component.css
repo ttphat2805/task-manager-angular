@@ -1,0 +1,84 @@
+.login-form {
+    width: 550px;
+    padding: 70px 90px;
+    position: relative;
+  }
+  
+  .login-form::before {
+    content: "";
+    width: 75px;
+    height: 150px;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: url("src/assets/image/bg-login.png") top left repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+  .title-form {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-bottom: 24px;
+  }
+  .forget-password {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btn {
+    margin-top: 16px;
+    font-size: 1.6rem;
+    padding: 12px 0;
+    width: 100%;
+  }
+  
+  .forget-password p,
+  .register {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-top: 8px;
+    color: var(--text-color);
+  }
+  .forget-password p:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+  }
+  
+  .register {
+    margin-top: 16px;
+  }
+  
+  .register p span {
+    color: var(--primary-color);
+  }
+  
+  .register p span:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
+  
+  .register::after {
+    content: "";
+    width: 75px;
+    height: 150px;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    background: url("src/assets/image/bg-login2.png") top left repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+  
+  input {
+    padding: 16px;
+  }
+  
+  .welcome {
+    font-size: 2rem;
+    color: #63b8e7;
+    font-weight: bold;
+  }
+  

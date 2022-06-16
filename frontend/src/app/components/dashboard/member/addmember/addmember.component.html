@@ -1,0 +1,101 @@
+<section class="project-add">
+    <div class="row col c-12">
+      <div class="card mid-item">
+        <div class="card-body">
+          <p class="title-form">
+            <i
+              class="far fa-calendar-plus"
+              style="margin-right: 5px; font-size: 2.4rem"
+            ></i
+            >Thêm nhân viên
+          </p>
+          <form [formGroup]="FormMember" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="">Họ tên</label>
+              <input type="text" class="form-control" placeholder="Tên..." formControlName="fullname" />
+            </div>
+            <div
+            class="errors"
+            *ngIf="
+              FormMember.controls['fullname'].invalid &&
+              FormMember.controls['fullname'].touched
+            "
+          >
+            Vui lòng họ tên đầy đủ..
+          </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="email" class="form-control" placeholder="Email..." formControlName="email"/>
+            </div>
+            <div
+            class="errors"
+            *ngIf="
+              FormMember.controls['email'].invalid &&
+              FormMember.controls['email'].touched
+            "
+          >
+            Vui lòng nhập email chính xác
+          </div>
+            <div class="form-group">
+              <label for="">Ngày sinh</label>
+              <input type="date" class="form-control" placeholder="Email..." formControlName="date"/>
+            </div>
+            <div
+            class="errors"
+            *ngIf="
+              FormMember.controls['date'].invalid &&
+              FormMember.controls['date'].touched
+            "
+          >
+            Vui lòng chọn ngày
+          </div>
+            <div class="form-group">
+              <label for="">Khu vực</label>
+              <select formControlName="area" class="form-control">
+                <option value="" hidden>Chọn khu vực</option>
+                <option value="north" >Bắc</option>
+                <option value="central">Trung</option>
+                <option value="south" >Nam</option>
+              </select>
+            </div>
+            <div
+            class="errors"
+            *ngIf="
+              FormMember.controls['area'].invalid &&
+              FormMember.controls['area'].touched
+            "
+          >
+            Vui lòng khu vực
+          </div>
+            <div class="form-checkbox">
+              <label for="">Vai trò</label><br />
+              <input type="radio" name="role" value="leader" formControlName="role" id="box-1"/>
+              <span class="radio"></span>
+              <label class="label-radio" for="box-1">Trưởng nhóm</label>
+            </div>
+            <div class="form-checkbox">
+              <input type="radio" name="role" value="member" formControlName="role" id="box-2"  />
+              <span class="radio"></span>
+              <label class="label-radio" for="box-2">Thành viên</label>
+            </div>
+            <br/>
+            <div class="form-checkbox">
+              <label for="">Trạng thái</label><br />
+              <input type="radio" name="status" value="1" formControlName="status" id="box3" checked/>
+              <span class="radio"></span>
+              <label class="label-radio" for="box3">Kích hoạt</label>
+            </div>
+            <div class="form-checkbox">
+              <input type="radio" name="status" value="0" formControlName="status" id="box-4"  />
+              <span class="radio"></span>
+              <label class="label-radio" for="box-4">Chưa kích hoạt</label>
+            </div>
+            <br/>
+            <br/>
+            <button class="btn btn-primary">Thêm</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  

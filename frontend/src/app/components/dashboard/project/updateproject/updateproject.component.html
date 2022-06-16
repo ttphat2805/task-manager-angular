@@ -1,0 +1,67 @@
+<section class="project-add">
+    <div class="row col c-12">
+      <div class="card mid-item">
+        <div class="card-body">
+          <p class="title-form">
+            <i
+              class="far fa-calendar-plus"
+              style="margin-right: 5px; font-size: 2.4rem"
+            ></i
+            >Cập nhật dự án
+          </p>
+          <form [formGroup]="FormProject" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="">Tên dự án</label>
+              <input type="text" class="form-control" formControlName="name" placeholder="Tên..." />
+            </div>
+            <div class="form-group">
+              <label for="">Ngày bắt đầu</label>
+              <input type="date" class="form-control" formControlName="dateStart" placeholder="Ngày bắt đầu..." />
+            </div>
+            <div class="form-group">
+              <label for="">Ngày kết thúc</label>
+              <input type="date" class="form-control" formControlName="dateEnd" placeholder="Ngày kết thúc..." />
+            </div>
+            <div class="form-group">
+              <label for="">Chi phí</label>
+              <input
+                type="number"
+                formControlName="price" 
+                class="form-control"
+                placeholder="Chi phí..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="">Trưởng nhóm</label>
+              <select formControlName="leader" class="form-control">
+                <option value="" hidden>Chọn trưởng nhóm</option>
+                <option  *ngFor="let leader of Leader" value="{{leader._id}}">
+                  {{leader.fullname}}
+                </option>
+              </select>
+            </div>
+            <label for="">Thành viên :</label> <br />
+            <div class="form-checkbox flex" >
+              <div class="row c-4 checkbox-list" *ngFor="let member of MemberArr, let i = index"  formArrayName="member">
+                  <input type="checkbox" [checked]="member.isSelected" value="{{member._id}}" id="member-{{i}}" (change)="onCheckboxChange($event)"/>
+                  <label for="member-{{i}}">{{member.fullname}}</label>
+              </div>
+            </div>
+            <div class="form-checkbox">
+              <label for="">Trạng thái</label><br />
+              <input type="radio" name="status" formControlName="status" value="1" id="box-1" />
+              <span class="radio"></span>
+              <label class="label-radio" for="box-1">Kích hoạt</label>
+            </div>
+            <div class="form-checkbox">
+              <input type="radio" name="status" formControlName="status" value="0" id="box-2" />
+              <span class="radio"></span>
+              <label class="label-radio" for="box-2">Chưa kích hoạt</label>
+            </div>
+            <button class="btn btn-primary">Thêm</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
